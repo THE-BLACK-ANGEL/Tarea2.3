@@ -38,24 +38,36 @@ public class HelloController {
     private Button btnBuscar;
 
     public void initialize() throws SQLException {
+
+        //Inicializamos los valores de las columnas de la tabla asignando a cada columna los valores de los registros
+        //que se han almacenado en las variables de los objetos de la clase Company.
         tcName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        tcID.setCellValueFactory(new PropertyValueFactory<>("id"));
         tcPropietario.setCellValueFactory(new PropertyValueFactory<>("partner_id"));
         tcMoneda.setCellValueFactory(new PropertyValueFactory<>("currency_id"));
-        tcID.setCellValueFactory(new PropertyValueFactory<>("id"));
 
-        //CARGAR DATOS INICIALES DE LA BASE DE DATOS
-        List<Company> companies = CompanyDAO.obtenerCompanies();
+    /*
+        //CARGAR DATOS DESDE EL INICIO DEL PROGRAMA DE LA BASE DE DATOS
+
+        List<Company> companies = CompanyDAO.buscarCompaniesNombre("");
         ObservableList<Company> datos = FXCollections.observableList(companies);
         tvDatos.setItems(datos);
 
+     */
     }
 
 
     @FXML
     public void onBtnBuscar(ActionEvent actionEvent) {
         try {
+            /*Declaramos una lista que almacenara objetos de tipo Company obtenidos a partir de la lectura y recogida de la informacion de los registros de
+              la tabla res_company gracias al metodo de la clase CompanyDAO (interfaz que hace de intermedaria entre la base de datos de odoo y el controlador
+              de la aplicacion) de buscar companies por el nombre
+            * */
             List<Company> companies = CompanyDAO.buscarCompaniesNombre(tfNombre.getText());
+            //Permitimos que se puedan ver los datos la lista companies y que esta refleje los cambios que se realizen de forma automatica
             ObservableList<Company> datos = FXCollections.observableArrayList(companies);
+            //Lo siguiente que haremos es decirle a la tabla que muestre los datos de la lista
             tvDatos.setItems(datos);
 
         } catch (SQLException e) {

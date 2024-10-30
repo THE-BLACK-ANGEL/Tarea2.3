@@ -1,10 +1,10 @@
 package com.example.terea2_3.Modelos;
 
 public class Company {
-    private int id ;
+    private Integer id ;
     private String name ;
-    private int partner_id ;
-    private int currency_id ;
+    private Integer partner_id ;
+    private Integer currency_id ;
 
     //GETTER & SETTERS
 
@@ -15,24 +15,24 @@ public class Company {
         return name;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setIdSocio(int partner_id) {
+    public void setPartner_id(Integer partner_id) {
         this.partner_id = partner_id;
     }
-    public int getIdSocio() {
+    public Integer getPartner_id() {
         return partner_id;
     }
 
-    public void setIdMoneda(int currency_id) {
+    public void setCurrency_id(Integer currency_id) {
         this.currency_id = currency_id;
     }
-    public int getIdMoneda() {
+    public Integer getCurrency_id() {
         return currency_id;
     }
 }
