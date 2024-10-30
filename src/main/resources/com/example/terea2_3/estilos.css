@@ -3,6 +3,7 @@
 }
 #labelC{
     -fx-font-weight: bold;
+    -fx-text-fill: #0035ff;
 }
 #tfNombre{
     -fx-border-color:black ;

@@ -18,16 +18,12 @@ public class CompanyDAO {
 
             while (resultSet.next()) {
                 Company company = new Company();
-                company.setName(resultSet.getString("name"));
                 company.setId(resultSet.getInt("id"));
+                company.setName(resultSet.getString("name"));
                 company.setIdSocio(resultSet.getInt("partner_id"));
                 company.setIdMoneda(resultSet.getInt("currency_id"));
 
                 companies.add(company);
-                System.out.println(resultSet.getString("name"));
-                System.out.println(resultSet.getInt("id"));
-                System.out.println(resultSet.getInt("idSocio"));
-                System.out.println(resultSet.getInt("idMoneda"));
             }
         }
 
@@ -37,9 +33,9 @@ public class CompanyDAO {
 
     public static List<Company> buscarCompaniesNombre(String nombre) throws SQLException {
         List<Company> companies = new ArrayList<>();
-        String sentencia = "SELECT name " +
+        String sentencia = "SELECT *" +
                 "FROM res_company " +
-                "WHERE name LIKE  '%" + nombre + "'";
+                "WHERE name LIKE  '%" + nombre + "%'";
 
         try (Connection conexion = ConexionBaseDatos.getConnection();
              Statement statement = conexion.createStatement();
@@ -47,7 +43,11 @@ public class CompanyDAO {
 
             while (resultSet.next()) {
                 Company company = new Company();
+                company.setId(resultSet.getInt("id"));
                 company.setName(resultSet.getString("name"));
+                company.setIdSocio(resultSet.getInt("partner_id"));
+                company.setIdMoneda(resultSet.getInt("currency_id"));
+
                 companies.add(company);
                 System.out.println(resultSet.getString("name"));
             }

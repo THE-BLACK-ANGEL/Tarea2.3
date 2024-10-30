@@ -42,6 +42,12 @@ public class HelloController {
         tcPropietario.setCellValueFactory(new PropertyValueFactory<>("partner_id"));
         tcMoneda.setCellValueFactory(new PropertyValueFactory<>("currency_id"));
         tcID.setCellValueFactory(new PropertyValueFactory<>("id"));
+
+        //CARGAR DATOS INICIALES DE LA BASE DE DATOS
+        List<Company> companies = CompanyDAO.obtenerCompanies();
+        ObservableList<Company> datos = FXCollections.observableList(companies);
+        tvDatos.setItems(datos);
+
     }
 
 
