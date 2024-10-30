@@ -18,8 +18,8 @@ public class CompanyDAO {
 
             while (resultSet.next()) {
                 Company company = new Company();
-                company.setId(resultSet.getInt("id"));
                 company.setName(resultSet.getString("name"));
+                company.setId(resultSet.getInt("id"));
                 company.setIdSocio(resultSet.getInt("partner_id"));
                 company.setIdMoneda(resultSet.getInt("currency_id"));
 

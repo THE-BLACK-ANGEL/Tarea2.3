@@ -8,7 +8,7 @@ public class ConexionBaseDatos {
     public static Connection connection = null ;
     public static Connection getConnection() {
 
-        String dbName = "company";
+        String dbName = "Company";
         String dbPort = "5432";
         String dbUser  = "odoo";
         String dbPass = "odoo";

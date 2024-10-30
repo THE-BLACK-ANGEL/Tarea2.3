@@ -16,7 +16,7 @@ public class HelloController {
     @FXML
     private TableColumn<Company, String> tcName;
     @FXML
-    private TableColumn<Company,Integer> tcID;
+    private TableColumn<Company, String> tcID;
     @FXML
     private TableColumn<Company,Integer> tcPropietario;
     @FXML
@@ -39,10 +39,9 @@ public class HelloController {
 
     public void initialize() throws SQLException {
         tcName.setCellValueFactory(new PropertyValueFactory<>("name"));
-        tcID.setCellValueFactory(new PropertyValueFactory<>("id"));
         tcPropietario.setCellValueFactory(new PropertyValueFactory<>("partner_id"));
         tcMoneda.setCellValueFactory(new PropertyValueFactory<>("currency_id"));
-        tvDatos.setItems(FXCollections.observableArrayList());
+        tcID.setCellValueFactory(new PropertyValueFactory<>("id"));
     }
 
 
@@ -52,6 +51,7 @@ public class HelloController {
             List<Company> companies = CompanyDAO.buscarCompaniesNombre(tfNombre.getText());
             ObservableList<Company> datos = FXCollections.observableArrayList(companies);
             tvDatos.setItems(datos);
+
         } catch (SQLException e) {
             System.err.println("Error de SQL al consultar: " + e.getMessage());
             showAlert("Error", "Error de SQL al consultar: " + e.getMessage());

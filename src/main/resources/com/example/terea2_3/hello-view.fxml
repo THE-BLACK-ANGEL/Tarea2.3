@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<GridPane fx:id="fondo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.terea2_3.Controladores.HelloController">
+<GridPane fx:id="fondo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.terea2_3.Controladores.HelloController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -73,10 +73,10 @@
       </AnchorPane>
       <TableView fx:id="tvDatos" prefHeight="242.0" prefWidth="600.0" GridPane.columnSpan="3" GridPane.rowIndex="1" GridPane.rowSpan="2">
          <columns>
-            <TableColumn fx:id="tcName" prefWidth="202.0" text="Nombre " />
-            <TableColumn fx:id="tcID" prefWidth="117.0" text="ID" />
-            <TableColumn fx:id="tcPropietario" prefWidth="136.0" text="ID Propietario" />
-            <TableColumn id="co" fx:id="tcMoneda" prefWidth="144.0" text="ID tipo moneda" />
+            <TableColumn fx:id="tcID" prefWidth="82.0" text="ID" />
+            <TableColumn fx:id="tcName" prefWidth="156.0" text="Nombre " />
+            <TableColumn fx:id="tcPropietario" prefWidth="161.0" text="ID Propietario" />
+            <TableColumn id="co" fx:id="tcMoneda" prefWidth="200.0" text="ID tipo moneda" />
          </columns>
       </TableView>
    </children>
