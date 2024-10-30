@@ -60,13 +60,15 @@ public class HelloController {
     @FXML
     public void onBtnBuscar(ActionEvent actionEvent) {
         try {
-            /*Declaramos una lista que almacenara objetos de tipo Company obtenidos a partir de la lectura y recogida de la informacion de los registros de
-              la tabla res_company gracias al metodo de la clase CompanyDAO (interfaz que hace de intermedaria entre la base de datos de odoo y el controlador
-              de la aplicacion) de buscar companies por el nombre
-            * */
+
+            //Declaramos una lista que almacenara objetos de tipo Company obtenidos a partir de la lectura y recogida de la informacion de los registros de
+            //la tabla res_company gracias al metodo de la clase CompanyDAO (interfaz que hace de intermedaria entre la base de datos de odoo y el controlador
+            //de la aplicacion) de buscar companies por el nombre.
             List<Company> companies = CompanyDAO.buscarCompaniesNombre(tfNombre.getText());
+
             //Permitimos que se puedan ver los datos la lista companies y que esta refleje los cambios que se realizen de forma automatica
             ObservableList<Company> datos = FXCollections.observableArrayList(companies);
+
             //Lo siguiente que haremos es decirle a la tabla que muestre los datos de la lista
             tvDatos.setItems(datos);
 
@@ -77,7 +79,8 @@ public class HelloController {
             System.err.println("Error de SQL al consultar: " + e.getMessage());
         }
     }
-//Alertas del programa
+
+    //Alertas del programa en caso de un error SQLException
     private void showAlert(String title, String message) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle(title);

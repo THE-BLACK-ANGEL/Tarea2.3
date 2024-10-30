@@ -13,9 +13,11 @@ public class CompanyDAO {
 
         //Lista que almacenara las compañias que vamos a buscar.
         List<Company> companies = new ArrayList<>();
+
         //Establecemos conexion con la base de datos que vamos a utilizar
         try (Connection conexion = ConexionBaseDatos.getConnection();
              Statement statement = conexion.createStatement();
+
              //Realizamos una consulta para conseguir los datos de los registros que nos interese, para mas tarde, asignar estos datos
              //a variables de objetos de tipo Company y añadir de esta forma los distintos registros de la tabla de la base de datos
              //a la lista de tipo Company ("companies") en forma de objetos del mismo tipo que la lista .
